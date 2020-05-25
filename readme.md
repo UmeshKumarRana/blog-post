@@ -10,7 +10,7 @@
 *Use "node app.js" in terminal and open http://localhost:4000 to view it in the browser.
 
 # NOTE:
-* seed.js file is added so each time you run the app, everything you added later through the web page will be removed and the you will only see the posts that are created by the seed file each time. So take care of it.
+* seeds.js file is added so each time you run the app, everything you added later through the web page will be removed and the you will only see the posts that are created by the seed file each time. So take care of it.
 
 
 
