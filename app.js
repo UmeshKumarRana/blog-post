@@ -4,6 +4,8 @@ var bodyParser       = require("body-parser"),
     mongoose         = require("mongoose"),
     express          = require("express"),
     app              = express();
+    Blog             = require("./models/blogs")
+    seedDB           = require("./seeds");
     
 //APP CONFIG
 mongoose.connect("mongodb://localhost/restful_blog_app", {
@@ -15,15 +17,7 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(expressSanitizer());   //the only requirement is that this code must be written after body-parser
 app.use(methodOverride("_method"));
-
-//MONGOOSE/MODEL CONFIG
-var blogSchema = new mongoose.Schema({
-    title: String,
-    image: String,
-    body: String,
-    created: {type: Date, default: Date.now}   //it means that created should be a date and there is a default value Date.now
-});
-var Blog = mongoose.model("Blog", blogSchema);
+seedDB();
 
 //RESTFUL ROUTES
 app.get("/", function(req, res){
